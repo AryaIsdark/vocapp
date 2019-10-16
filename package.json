@@ -26,7 +26,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test --ci"
+      "pre-push": "yarn test --watchAll"
     }
   },
   "eslintConfig": {
