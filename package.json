@@ -26,7 +26,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "cross-env CI=true yarn test"
+      "pre-push": "CI=true yarn test"
     }
   },
   "eslintConfig": {
