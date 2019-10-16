@@ -27,7 +27,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "cross-env CI=true npm run lint && npm test --coverage"
+      "pre-push": "npm run lint && cross-env CI=true npm test --coverage"
     }
   },
   "eslintConfig": {
