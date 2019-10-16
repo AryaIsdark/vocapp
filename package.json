@@ -21,12 +21,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint src"
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test --watchAll"
+      "pre-push": "npm run lint && npm test"
     }
   },
   "eslintConfig": {
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^6.0.3",
     "husky": "^3.0.9"
   }
 }
