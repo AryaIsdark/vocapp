@@ -18,10 +18,10 @@ describe("store/posts/actions", () => {
         );
 
     const dispatch = jest.fn();
-    
+
     await actions.loadData()(dispatch)
 
-    expect(dispatch).toHaveBeenCalledTimes(1);
+    expect(dispatch).toHaveBeenCalledTimes(4);
     
     getpostsSpy.mockRestore()
 
