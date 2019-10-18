@@ -8,7 +8,6 @@ export const loadData = (params = {}) => async (dispatch: Dispatch<Action>) => {
     dispatch(setIsLoading(true))
     try {
         const response = await api.getPosts(params);
-        console.log(response)
         dispatch({
             type: ActionTypes.SET_DATA,
             payload: { data: response.data },
