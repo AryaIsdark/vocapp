@@ -1,5 +1,5 @@
 import * as actions from "./actions"
-import {ApiOkResponse} from 'apisauce'
+import {ApiOkResponse, ApiErrorResponse} from 'apisauce'
 import * as api from 'api/apiFunctions'
 import { ActionTypes } from "./types";
 
@@ -25,6 +25,30 @@ describe("store/posts/actions", () => {
     expect(dispatch).toHaveBeenCalledWith(actions.setHasError(false));
     expect(dispatch).toHaveBeenCalledWith(actions.setIsLoading(true));
     expect(dispatch).toHaveBeenCalledWith({type:ActionTypes.SET_DATA, payload: {data: mockData} })
+    expect(dispatch).toHaveBeenCalledWith(actions.setIsLoading(false));
+    expect(dispatch).toHaveBeenCalledTimes(4);
+    
+    getPostsSpy.mockRestore()
+
+  });
+
+  it("can return error when loading the data fails", async() => {
+    const mockData = [{id:1,title:'testPost'}]
+    const getPostsSpy = jest
+      .spyOn(api, 'getPosts')
+      .mockImplementation(() =>
+          Promise.reject({
+            data: mockData,
+          } as ApiErrorResponse<any>),
+        );
+
+    const dispatch = jest.fn();
+
+    await actions.loadData()(dispatch)
+
+    expect(dispatch).toHaveBeenCalledWith(actions.setHasError(false));
+    expect(dispatch).toHaveBeenCalledWith(actions.setIsLoading(true));
+    expect(dispatch).toHaveBeenCalledWith(actions.setHasError(true))
     expect(dispatch).toHaveBeenCalledWith(actions.setIsLoading(false));
     expect(dispatch).toHaveBeenCalledTimes(4);
     
