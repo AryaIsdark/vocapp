@@ -31,4 +31,18 @@ describe("store/posts/actions", () => {
     getPostsSpy.mockRestore()
 
   });
+
+  it('can set isLoading', ()=>{
+    expect(actions.setIsLoading(true))
+      .toMatchObject({type: ActionTypes.SET_LOADING, payload: {isLoading: true}})
+    expect(actions.setIsLoading(false))
+    .toMatchObject({type: ActionTypes.SET_LOADING, payload: {isLoading: false}})
+  })
+  
+  it('can set hasError', ()=>{
+    expect(actions.setHasError(true))
+      .toMatchObject({type: ActionTypes.SET_HAS_ERROR, payload: {hasError: true}})
+    expect(actions.setHasError(false))
+    .toMatchObject({type: ActionTypes.SET_HAS_ERROR, payload: {hasError: false}})
+  })
 });
