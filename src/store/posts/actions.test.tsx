@@ -1,19 +1,29 @@
 import * as actions from "./actions"
-import { ActionTypes } from './types'
-import mockData from './data.json'
+import {ApiOkResponse} from 'apisauce'
+import * as api from 'api/apiFunctions'
 
-const mockDispatch = jest.fn()
+jest.mock('api/apiFunctions', () => ({
+  getPosts: jest.fn()
+}));
 
 describe("store/posts/actions", () => {
-  it.skip("can load data", () => {
-    expect(actions.loadData())
-      .toMatchObject(
-        {
-          type: ActionTypes.SET_DATA,
-          payload: {
-            data: mockData
-          }
-        }
-      )
+  it("can load data", async() => {
+
+    const getpostsSpy = jest
+      .spyOn(api, 'getPosts')
+      .mockImplementation(() =>
+          Promise.resolve({
+            data: [{id:1,title:'testPost'}],
+          } as ApiOkResponse<any>),
+        );
+
+    const dispatch = jest.fn();
+    
+    await actions.loadData()(dispatch)
+
+    expect(dispatch).toHaveBeenCalledTimes(1);
+    
+    getpostsSpy.mockRestore()
+
   });
 });
