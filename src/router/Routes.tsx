@@ -9,7 +9,6 @@ const Routes = () => {
       <Route
         path="/posts"
         component={Posts} 
-        
       />
     </Switch>
   );
