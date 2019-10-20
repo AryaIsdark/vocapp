@@ -15,8 +15,8 @@ const Posts = () => {
     }, [dispatch])
 
 
-    if (hasError) return ('error')
-    if (isLoading) return ('loading')
+    if (hasError) return <>Error</>
+    if (isLoading) return <>Loading...</>
 
     return (
     <>
