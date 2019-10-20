@@ -9,11 +9,11 @@ import { Router } from 'react-router-dom';
 import history from 'router/history';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={history}>
+    <Router history={history}>
+        <Provider store={store}>
             <App />
-        </Router>
-    </Provider>,
+        </Provider>
+    </Router>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
