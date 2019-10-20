@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
 import Routes from 'router/Routes'
+import { useTranslation } from 'react-i18next'
 
-function App() {
+const App = () => {
+  const { t } = useTranslation('preload', { useSuspense: false });
+
   return (
     <div className="App">
-      <>
+      <Suspense fallback={t('loading...')}>
         <Routes />
-      </>
+      </Suspense>
     </div>
   );
 }
