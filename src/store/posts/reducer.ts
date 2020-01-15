@@ -1,4 +1,4 @@
-import { PostsState, ActionTypes, Action } from './types';
+import { ActionTypes, Action } from './types';
 
 const initialState = {
     isLoading: false,
@@ -9,7 +9,7 @@ const initialState = {
 export const reducer = (
     state = initialState,
     action: Action,
-): PostsState => {
+) => {
     const { type, payload } = action;
     switch (type) {
         case ActionTypes.SET_LOADING:

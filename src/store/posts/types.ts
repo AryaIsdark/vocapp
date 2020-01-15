@@ -1,3 +1,5 @@
+import {Post} from 'types/post'
+
 export enum ActionTypes {
     SET_DATA = 'posts/setData',
     SET_LOADING = 'posts/setLoading',
@@ -5,9 +7,9 @@ export enum ActionTypes {
 }
 
 export interface PostsState {
-    isLoading: boolean | undefined,
-    hasError : boolean | undefined,
-    data : any
+    isLoading: boolean,
+    hasError : boolean,
+    data : Post[]
 }
 
 export interface Action {
