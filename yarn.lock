@@ -10154,6 +10154,11 @@ type@^1.0.1:
   resolved "https://registry.yarnpkg.com/type/-/type-1.2.0.tgz#848dd7698dafa3e54a6c479e759c4bc3f18847a0"
   integrity sha512-+5nt5AAniqsCnu2cEQQdpzCAh33kVx8n0VoFidKpB1dVVLAN/F+bgVOqOJqOnEnrhp222clB5p3vUlD+1QAnfg==
 
+typecheck@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/typecheck/-/typecheck-0.1.2.tgz#016e200b08c656159c5844698a8bd4ec22ca0435"
+  integrity sha1-AW4gCwjGVhWcWERpiovU7CLKBDU=
+
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"

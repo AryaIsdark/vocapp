@@ -2,8 +2,12 @@ import reducer from "./reducer"
 import * as actions from './actions'
 export {reducer} from './reducer'
 
+
 describe('store/posts/reducer',()=>{
-    it('can load data', ()=>{
-        expect(reducer(undefined, actions.loadData())).toMatchSnapshot();
+    it('can set loading', ()=>{
+        expect(reducer(undefined, actions.setIsLoading(true))).toMatchSnapshot();
+    })
+    it('can set error', ()=>{
+        expect(reducer(undefined, actions.setHasError(true))).toMatchSnapshot();
     })
 })
