@@ -11,7 +11,6 @@ interface Props {
     entityId: string
 }
 
-
 const Comments = ({ entityId }: Props) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
