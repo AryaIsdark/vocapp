@@ -37,7 +37,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
-      "pre-push": "cross-env test-ci npm run test"
+      "pre-push": "cross-env test-ci"
     }
   },
   "eslintConfig": {
