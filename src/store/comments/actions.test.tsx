@@ -4,16 +4,17 @@ import * as api from 'api/apiFunctions'
 import { ActionTypes } from "./types";
 
 jest.mock('api/apiFunctions', () => ({
-  getPostComments: jest.fn()
+  getComments: jest.fn()
 }));
 
 describe("store/comments/actions", () => {
   const entityId = 'mockId'
+  const entityType = 'posts'
   
   it("can load data", async () => {
     const mockData = [{ id: 1, title: 'testPost' }]
     const getPostsSpy = jest
-      .spyOn(api, 'getPostComments')
+      .spyOn(api, 'getComments')
       .mockImplementation(() =>
         Promise.resolve({
           data: mockData,
@@ -22,7 +23,7 @@ describe("store/comments/actions", () => {
 
     const dispatch = jest.fn();
 
-    await actions.loadData(entityId)(dispatch)
+    await actions.loadData(entityType, entityId)(dispatch)
 
     expect(dispatch).toHaveBeenCalledWith(actions.setHasError(false));
     expect(dispatch).toHaveBeenCalledWith(actions.setIsLoading(true));
@@ -38,7 +39,7 @@ describe("store/comments/actions", () => {
     const mockData = [{ id: 1, title: 'testPost' }]
     const entityId = 'mockId'
     const getPostsSpy = jest
-      .spyOn(api, 'getPostComments')
+      .spyOn(api, 'getComments')
       .mockImplementation(() =>
         Promise.reject({
           data: mockData,
@@ -47,7 +48,7 @@ describe("store/comments/actions", () => {
 
     const dispatch = jest.fn();
 
-    await actions.loadData(entityId)(dispatch)
+    await actions.loadData(entityType, entityId)(dispatch)
 
     expect(dispatch).toHaveBeenCalledWith(actions.setHasError(false));
     expect(dispatch).toHaveBeenCalledWith(actions.setIsLoading(true));

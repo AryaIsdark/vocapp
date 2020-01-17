@@ -5,10 +5,7 @@ import * as actions from 'store/posts/actions'
 import { useTranslation } from 'react-i18next'
 import { Card } from 'antd'
 import { Post } from 'types/post'
-import { Route, Link } from 'react-router-dom';
-import PostDetails from '../postDetails/postDetails'
-import history from 'router/history';
-
+import { Link } from 'react-router-dom';
 
 interface Props {
     match: {
@@ -28,10 +25,6 @@ const Posts = ({ match }: Props) => {
     useEffect(() => {
         dispatch(actions.loadData())
     }, [dispatch])
-
-    const handleDrawerDetailsOnClose = () => {
-        history.replace(match.url)
-    }
 
     if (hasError) return <>{t('misc.error')}</>
     if (!data.length && !isLoading) return <>{t('misc.noData')}</>
@@ -53,12 +46,6 @@ const Posts = ({ match }: Props) => {
                     )
                 }
             </div>
-            <Route
-                path={`${match.url}/:postId`}
-                render={(props) => (
-                    <PostDetails {...props} onClose={handleDrawerDetailsOnClose} />
-                )}
-            />
         </>
     )
 }

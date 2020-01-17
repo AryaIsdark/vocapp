@@ -7,6 +7,6 @@ export const getPosts = (params: any = {}) =>
 export const getPost = (id: string) =>
   api.get<any>(`/posts/${id}`);
 
-export const getPostComments = (id: string) =>
-  api.get<any>(`/posts/${id}/comments`);
+export const getComments = (entityType: string, entityId: string) =>
+  api.get<any>(`/${entityType}/${entityId}/comments`);
 
