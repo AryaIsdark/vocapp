@@ -3,11 +3,23 @@ import { useDispatch, useSelector } from 'react-redux'
 import * as selectors from 'store/posts/selectors'
 import * as actions from 'store/posts/actions'
 import { useTranslation } from 'react-i18next'
+import { Card } from 'antd'
+import { Post } from 'types/post'
+import { Route, Link } from 'react-router-dom';
+import PostDetails from '../postDetails/postDetails'
+import history from 'router/history';
 
 
+interface Props {
+    match: {
+        url: string;
+        params: any
+    };
+}
 
-const Posts = () => {
-    const {t} = useTranslation();
+
+const Posts = ({ match }: Props) => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const data = useSelector(selectors.data);
     const hasError = useSelector(selectors.hasError);
@@ -17,18 +29,37 @@ const Posts = () => {
         dispatch(actions.loadData())
     }, [dispatch])
 
+    const handleDrawerDetailsOnClose = () => {
+        history.replace(match.url)
+    }
 
     if (hasError) return <>{t('misc.error')}</>
-    if (isLoading) return <>{t('misc.loading')}</>
+    if (!data.length && !isLoading) return <>{t('misc.noData')}</>
 
     return (
-    <>
-     {data.length && (
-         data.map((element: any) => 
-             <div>{element.title}</div>
-         )
-     )}
-    </>
+        <>
+            <div className={'d-flex '}>
+                {
+                    data.map((post: Post) =>
+                        <Card
+                            className={'item'}
+                            bordered={false}
+                            loading={isLoading}
+                            title={post.title}
+                            extra={<Link to={`/posts/${post.id}`} >{t('misc.more')}</Link>}
+                            style={{ width: 350 }}>
+                            <p>{post.body}</p>
+                        </Card>
+                    )
+                }
+            </div>
+            <Route
+                path={`${match.url}/:postId`}
+                render={(props) => (
+                    <PostDetails {...props} onClose={handleDrawerDetailsOnClose} />
+                )}
+            />
+        </>
     )
 }
 

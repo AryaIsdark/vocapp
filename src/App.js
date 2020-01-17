@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import 'antd/dist/antd.css';
 import './App.css';
 import Routes from 'router/Routes'
 import { useTranslation } from 'react-i18next'

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: whitesmoke;
 }
 
 .App-logo {
@@ -19,4 +20,19 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.d-flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.d-flex .item {
+  flex-basis: auto;
+  margin: 20px;
+}
+
+.box-shadow-sm {
+  box-shadow: 0 0 4px #e2e2e2;
 }

@@ -1,6 +1,7 @@
 {
     "misc": {
         "loading": "Loading …",
-        "error": "Error"
+        "error": "Error",
+        "more": "See More"
     }
 }
