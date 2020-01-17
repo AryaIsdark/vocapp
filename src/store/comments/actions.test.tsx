@@ -10,9 +10,9 @@ jest.mock('api/apiFunctions', () => ({
 describe("store/comments/actions", () => {
   const entityId = 'mockId'
   const entityType = 'posts'
-  
+  const mockData = [{ id: 1, title: 'testPost' }]
+
   it("can load data", async () => {
-    const mockData = [{ id: 1, title: 'testPost' }]
     const getPostsSpy = jest
       .spyOn(api, 'getComments')
       .mockImplementation(() =>
@@ -36,8 +36,7 @@ describe("store/comments/actions", () => {
   });
 
   it("can return error when loading the data fails", async () => {
-    const mockData = [{ id: 1, title: 'testPost' }]
-    const entityId = 'mockId'
+    
     const getPostsSpy = jest
       .spyOn(api, 'getComments')
       .mockImplementation(() =>
