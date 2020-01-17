@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import * as selectors from 'store/comments/selectors'
 import * as actions from 'store/comments/actions'
 import { useTranslation } from 'react-i18next'
-import { Comment as CommentItem, Icon, Tooltip, Avatar } from 'antd'
+import { Comment as CommentItem, Tooltip } from 'antd'
 import { Comment } from 'types/comment'
 import moment from 'moment'
 
