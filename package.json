@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^3.26.7",
+    "@ant-design/icons": "^4.3.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
+    "antd": "^4.8.2",
     "apisauce": "^1.1.1",
     "history": "^4.10.1",
     "i18next": "^17.0.18",
@@ -13,7 +15,7 @@
     "jest": "^24.9.0",
     "moment": "^2.24.0",
     "prettier": "^1.18.2",
-    "react": "^16.10.2",
+    "react": "^17.0.1",
     "react-dom": "^16.10.2",
     "react-i18next": "^10.13.1",
     "react-redux": "^7.1.1",
@@ -23,7 +25,7 @@
     "redux-devtools": "^3.5.0",
     "redux-thunk": "^2.3.0",
     "typecheck": "^0.1.2",
-    "typescript": "^3.6.4"
+    "typescript": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

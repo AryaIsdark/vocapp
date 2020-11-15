@@ -1,5 +1,138 @@
+body {
+  background: whitesmoke; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #ffffff,
+    #9c9c9c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #9c9c9c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@keyframes breath {
+  from {
+    box-shadow: 0 0 36px 0 #ffffff52;
+  }
+
+  to {
+    box-shadow: 0 0 36px 0 #ffffff7a;
+  }
+}
+
+.actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.vocabs {
+  margin: 20px auto;
+  padding-top: 25px;
+  max-width: 800px;
+}
+
+.vocabs .item {
+  background: white;
+  margin: 17px;
+  box-shadow: 0 0 5px silver;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.vocabs .item .word {
+  background: #1304509e;
+  font-size: 18px;
+  padding: 10px;
+  color: white;
+  min-width: 180px;
+  border-radius: 5px 0 0 5px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.vocabs .item .definition {
+  padding: 0px 20px;
+  font-size: 100%;
+}
+
+.secondary {
+  background: silver;
+}
+
+.primary {
+  background: #1304509e;
+  color: white;
+}
+
+.actions button {
+  border: none;
+  width: 100%;
+  padding: 50px;
+  font-size: 50px;
+}
+
+.search-result {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-result .word {
+  text-transform: capitalize;
+}
+
+.search-result .definition {
+  font-size: 25px;
+}
+
+.search-screen .search-button {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #158044;
+  border: none;
+  box-shadow: 0 -10px 50px #08080857;
+  font-size: 100px;
+  color: white;
+}
+
+.search-screen .search-no-data {
+  padding: 20px;
+  text-align: center;
+}
+
+.search-screen .ant-input {
+  animation-name: changewidth;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border: none;
+}
+
+.search-screen .ant-input {
+  background: #ffffffed;
+  padding: 50px 30px;
+  font-size: 30px;
+  box-shadow: 0 0 36px 0 #ffffff52;
+  border-radius: 0px;
+  animation-duration: 2s;
+  animation-name: breath;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 .App {
-  background: whitesmoke;
+  /* margin: 50px; */
 }
 
 .App-logo {
@@ -20,7 +153,7 @@
   color: #09d3ac;
 }
 
-.d-flex{
+.d-flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -35,7 +168,7 @@
   box-shadow: 0 0 4px #e2e2e2;
 }
 
-.ant-list-items li{
+.ant-list-items li {
   background: white;
   margin: 15px;
   border-radius: 4px;

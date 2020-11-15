@@ -1,6 +1,5 @@
-import { create, ApiResponse } from 'apisauce';
-import error from 'error/error';
-
+import { create, ApiResponse } from "apisauce";
+import error from "error/error";
 
 export const createResponseTransform = () => (response: ApiResponse<any>) => {
   const { ok, data, problem, originalError, status, config } = response;
@@ -17,12 +16,12 @@ export const createResponseTransform = () => (response: ApiResponse<any>) => {
     }
 
     const isLogRequest =
-      config && config.url && config.url.includes('/api/v1/logs');
+      config && config.url && config.url.includes("/api/v1/logs");
 
     if ((!status || status > 500) && !!originalError && !isLogRequest) {
       // TODO: Remove ts-ignore when Logger has been typed
       // @ts-ignore
-      log.error('Error:', getLoggableResponse(originalError));
+      log.error("Error:", getLoggableResponse(originalError));
     }
 
     // Apisauce doesn't throw on errors which makes error handling unneccesarly
@@ -32,7 +31,7 @@ export const createResponseTransform = () => (response: ApiResponse<any>) => {
 };
 
 export const api = create({
-  baseURL: 'https://jsonplaceholder.typicode.com',
+  baseURL: "https://waves-api-dev.herokuapp.com/api/v1",
 });
 
 api.addResponseTransform(createResponseTransform());
