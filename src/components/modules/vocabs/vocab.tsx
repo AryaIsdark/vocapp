@@ -42,19 +42,19 @@ const Vocab = () => {
     <div className={"vocab"}>
       {" "}
       <>
-        <div className={"search-result"}>
-          <h1 className={"word"}>
-            <b>
-              <ReadOutlined translate={""} /> {data.wordId}
-            </b>
+        <div className={"vocab-content"}>
+          <h1 className={"section primary word"}>
+            <ReadOutlined translate={""} /> {data.wordId}
           </h1>
-          <Divider />
-          <p className={"definition"}>{data.definition}</p>
-          <p className={"createdAt"}>
-            {moment(data.createdAt).fromNow()} -
-            {moment(data.createdAt).format("MM/DD/YYYY")}
-          </p>
-          {loading && <LoadingOutlined translate={"loading"} spin />}
+          <div className={"section"}>
+            <p className={"definition"}>{data.definition}</p>
+            <Divider />
+            <p className={"createdAt"}>
+              {moment(data.createdAt).fromNow()} -
+              {moment(data.createdAt).format("MM/DD/YYYY")}
+            </p>
+            {loading && <LoadingOutlined translate={"loading"} spin />}
+          </div>
         </div>
         <div className={"actions"}>
           <button className={"secondary"}>

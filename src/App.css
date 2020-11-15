@@ -4,11 +4,11 @@ body {
 
 @keyframes breath {
   from {
-    box-shadow: 0 0 36px 0 #ffffff52;
+    box-shadow: 0px 10px 9px -11px grey;
   }
 
   to {
-    box-shadow: 0 0 36px 0 #ffffff7a;
+    box-shadow: 0px 10px 9px -11px #1304509e;
   }
 }
 
@@ -74,6 +74,24 @@ body {
   font-size: 50px;
 }
 
+.vocab-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.vocab-content .word {
+  text-transform: capitalize;
+}
+
+.vocab-content .definition {
+  font-size: 25px;
+  text-align: justify;
+}
+
+.vocab-content .section {
+  padding: 50px;
+}
+
 .search-result {
   padding: 50px;
   display: flex;
@@ -107,10 +125,12 @@ body {
 }
 
 .search-screen .ant-input {
-  animation-name: changewidth;
+  animation-name: breath;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   border: none;
+  border-radius: 0 0 25% 25% !important;
+  text-align: center;
 }
 
 .search-screen .ant-input {
