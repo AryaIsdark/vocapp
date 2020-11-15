@@ -125,26 +125,12 @@ body {
 }
 
 .search-screen .ant-input {
-  animation-name: breath;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  border: none;
-  border-radius: 0 0 25% 25% !important;
-  text-align: center;
-}
-
-.search-screen .ant-input {
-  padding: 50px 30px;
-  font-size: 30px;
-  border-radius: 0px;
+  font-size: 25px;
   animation-duration: 2s;
   animation-name: breath;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-}
-
-.App {
-  /* margin: 50px; */
+  padding: 20px;
 }
 
 .App-logo {
