@@ -8,8 +8,8 @@ const Vocabs = ({ data }: { data: any }) => {
           <div key={item._id} className={"item"}>
             <div className={"word"}>{item.wordId}</div>
             <div className={"definition"}>
-              {item.definition.substring(0, 100)}
-              {item.definition.length > 100 && "..."}
+              {item.definition.substring(0, 30)}
+              {item.definition.length > 30 && "..."}
             </div>
           </div>
         ))}
