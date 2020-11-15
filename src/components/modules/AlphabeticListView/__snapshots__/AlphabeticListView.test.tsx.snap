@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/elements/AlphabeticListView/AlphabeticListView renders correctly 1`] = `
+<div>
+  <div
+    class="AlphabeticListView"
+    data-testid="name"
+  >
+    <div
+      class="AlphabeticListView__container"
+    >
+      <div
+        class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+        role="separator"
+      >
+        <span
+          class="ant-divider-inner-text"
+        >
+          <strong
+            class="AlphabeticListView__group-header"
+          >
+            a
+          </strong>
+        </span>
+      </div>
+      <div />
+    </div>
+    <div
+      class="AlphabeticListView__container"
+    >
+      <div
+        class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+        role="separator"
+      >
+        <span
+          class="ant-divider-inner-text"
+        >
+          <strong
+            class="AlphabeticListView__group-header"
+          >
+            b
+          </strong>
+        </span>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;

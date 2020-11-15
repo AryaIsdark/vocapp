@@ -1,0 +1,44 @@
+@import '~antd/es/style/themes/default.less'; // Import Ant Design styles by less entry
+
+.AlphabeticListView {
+  &__container {
+    position: relative;
+  }
+
+  &__group-header {
+    text-transform: uppercase;
+    font-size: @headings-font-size-large;
+    color: @info-color;
+  }
+
+  .ant-list-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: @component-background;
+
+    + .ant-list-item {
+      margin-top: @spacing-xx-small;
+    }
+  }
+
+  .ant-list-item-action {
+    flex: 0 0 auto;
+    margin-left: 0;
+    list-style: none;
+    text-align: right;
+    padding: @padding-lg;
+  }
+
+  .ant-list-item-meta {
+    display: flex;
+    flex: 1 1;
+    align-items: flex-start;
+    font-size: 0;
+    padding: @padding-lg;
+  }
+
+  .ant-list-item-meta-title {
+    font-size: @headings-font-size-large;
+  }
+}
