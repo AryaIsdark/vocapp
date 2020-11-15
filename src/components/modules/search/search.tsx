@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "antd";
-import { SearchOutlined, SmileOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+import { SmileOutlined } from "@ant-design/icons";
 import Vocabs from "../vocabs/vocabs";
 import { useSelector } from "react-redux";
 import * as vocabsSelector from "store/vocabs/selectors";
 
 const SearchScreen = () => {
   const [query, setQuery] = useState(null);
-  const history = useHistory();
   const savedVocabs = useSelector(vocabsSelector.data);
   const [vocabs, setVocabs] = useState(savedVocabs);
 
@@ -22,10 +20,6 @@ const SearchScreen = () => {
       return null;
     });
     setVocabs(filteredVocabs);
-  };
-
-  const handleSearchClick = () => {
-    history.push(`/search/${query}`);
   };
 
   useEffect(() => {
@@ -49,11 +43,7 @@ const SearchScreen = () => {
             <h3>
               Your dictionary doesn't include this word, wanna search the web?
             </h3>
-          </div>
-          <div className={"actions"}>
-            <button className={"primary"} onClick={handleSearchClick}>
-              <SearchOutlined translate={""} />
-            </button>
+            <a href={`/search/${query}`}>Yes, Search please!</a>
           </div>
         </>
       )}

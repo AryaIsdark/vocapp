@@ -13,3 +13,4 @@ export const postVocabulary = (params: any) =>
   api.post(`/vocabularies/`, params);
 
 export const getVocabularies = () => api.get(`/vocabularies/`);
+export const getVocabulary = (id: string) => api.get(`/vocabularies/${id}`);

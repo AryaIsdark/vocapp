@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import * as api from "api/apiFunctions";
-import { Divider } from "antd";
+import { Divider, notification } from "antd";
 import {
   ReadOutlined,
   LoadingOutlined,
@@ -34,11 +34,17 @@ const SearchResult = () => {
 
   const handleSave = async () => {
     try {
-      await api.postVocabulary({
+      const response = await api.postVocabulary({
         wordId: query,
         definition: definition,
       });
+      const { data: insertedId } = response.data as any;
       history.replace("/");
+      notification.success({
+        message: "Item added to dictionary, click to see",
+        onClick: () => history.replace(`/vocabs/${insertedId}`),
+        duration: 2,
+      });
     } catch (error) {
       console.log(error);
     }
