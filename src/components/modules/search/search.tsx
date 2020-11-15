@@ -4,6 +4,7 @@ import { SmileOutlined } from "@ant-design/icons";
 import Vocabs from "../vocabs/vocabs";
 import { useSelector } from "react-redux";
 import * as vocabsSelector from "store/vocabs/selectors";
+import { Link } from "react-router-dom";
 
 const SearchScreen = () => {
   const [query, setQuery] = useState(null);
@@ -43,7 +44,7 @@ const SearchScreen = () => {
             <h3>
               Your dictionary doesn't include this word, wanna search the web?
             </h3>
-            <a href={`/search/${query}`}>Yes, Search please!</a>
+            <Link to={`/search/${query}`}>Yes, Search please!</Link>
           </div>
         </>
       )}
