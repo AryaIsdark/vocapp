@@ -31,7 +31,7 @@ export const createResponseTransform = () => (response: ApiResponse<any>) => {
 };
 
 export const api = create({
-  baseURL: "https://waves-api-dev.herokuapp.com/api/v1",
+  baseURL: "https://vocapp-api.herokuapp.com/api/v1",
 });
 
 api.addResponseTransform(createResponseTransform());
