@@ -7,6 +7,9 @@ import {
   LoadingOutlined,
   ArrowLeftOutlined,
 } from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import * as meSelectors from "store/me/selectors";
+import * as vocabActions from "store/vocabs/actions";
 
 const SearchResult = () => {
   const history = useHistory();
@@ -14,6 +17,8 @@ const SearchResult = () => {
   const [definition, setDefinition] = useState<any>();
   const [error, setError] = useState<any>();
   const [loading, setLoading] = useState(false);
+  const defaultGroup = useSelector(meSelectors.getFirstVocabularyGroup);
+  const dispatch = useDispatch();
 
   const translate = async (value: string) => {
     setLoading(true);
@@ -37,8 +42,10 @@ const SearchResult = () => {
       const response = await api.postVocabulary({
         wordId: query,
         definition: definition,
+        groupId: defaultGroup,
       });
       const { data: insertedId } = response.data as any;
+      dispatch(vocabActions.loadData());
       history.replace("/");
       notification.success({
         message: "Item added to dictionary, click to see",
