@@ -31,8 +31,8 @@ export const createResponseTransform = () => (response: ApiResponse<any>) => {
 };
 
 export const api = create({
-  // baseURL: "https://vocapp-api.herokuapp.com/api/v1",
-  baseURL: "http://localhost:8001/api/v1",
+  baseURL: "https://vocapp-api.herokuapp.com/api/v1",
+  // baseURL: "http://localhost:8001/api/v1",
 });
 
 api.addResponseTransform(createResponseTransform());

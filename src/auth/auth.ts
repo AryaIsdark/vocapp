@@ -14,10 +14,9 @@ export const authenticate = async (data: any) => {
   try {
     const response = (await api.authenticate(data)) as any;
     const user = response.data && response.data.data;
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
-    localStorage.setItem("gooz", "asdasdasd");
 
     if (user) {
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
       store.dispatch(meActions.loadData(user._id) as any);
     }
     return response;
