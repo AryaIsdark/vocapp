@@ -9,12 +9,14 @@ import * as vocabActions from "store/vocabs/actions";
 import * as auth from "auth/auth";
 import { useHistory } from "react-router-dom";
 import * as meSelectors from "store/me/selectors";
+import Header from "components/modules/header/header";
 
 const App = () => {
   const { t } = useTranslation("preload", { useSuspense: false });
   const dispatch = useDispatch();
   const history = useHistory();
   const vocabularyGroupId = useSelector(meSelectors.getFirstVocabularyGroup);
+  const user = useSelector(meSelectors.me);
 
   const getData = useCallback(async () => {
     try {
@@ -33,7 +35,12 @@ const App = () => {
   return (
     <div className="App">
       <Suspense fallback={<>{t("loading...")}</>}>
-        <Routes />
+        <div className="header">
+          <Header user={user} />
+        </div>
+        <div className="app-container">
+          <Routes />
+        </div>
       </Suspense>
     </div>
   );

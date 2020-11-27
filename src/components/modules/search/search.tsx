@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "antd";
-import { SmileOutlined } from "@ant-design/icons";
+import { SmileOutlined, DislikeOutlined } from "@ant-design/icons";
 import Vocabs from "../vocabs/vocabs";
 import { useSelector } from "react-redux";
 import * as vocabsSelector from "store/vocabs/selectors";
@@ -33,6 +33,12 @@ const SearchScreen = () => {
         placeholder={"Search for a word..."}
         onChange={handleInputChange}
       />
+      {!query && !savedVocabs.length && (
+        <div className={"search-no-data"}>
+          <DislikeOutlined style={{ fontSize: "40px" }} translate={"no-data"} />
+          <h3>Your dictionary is empty, try to save some vocabs</h3>
+        </div>
+      )}
       <Vocabs data={vocabs} />
       {!vocabs.length && query && (
         <>

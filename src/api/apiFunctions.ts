@@ -19,3 +19,5 @@ export const getVocabulary = (id: string) => api.get(`/vocabularies/${id}`);
 
 export const authenticate = (params: any) =>
   api.post(`/users/authenticate/`, params);
+
+export const signup = (params: any) => api.post(`/users`, params);

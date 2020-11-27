@@ -1,23 +1,22 @@
-import React from "react";
-import { Form, Input, Button } from "antd";
+import React, { useState } from "react";
+import { Alert, Form, Input } from "antd";
 import * as auth from "auth/auth";
 import { useHistory } from "react-router-dom";
 
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
-
 const Login = () => {
   const history = useHistory();
+  const [hasError, setHasError] = useState(false);
+
   const onFinish = async (values: any) => {
     try {
-      await auth.authenticate(values);
-      history.replace("/");
-    } catch (err) {}
+      const response = await auth.authenticate(values);
+      if (response.data) {
+        history.replace("/");
+      }
+    } catch (err) {
+      console.log(err);
+      setHasError(true);
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -26,32 +25,34 @@ const Login = () => {
 
   return (
     <Form
-      {...layout}
+      style={{ padding: "100px 30px" }}
       name="basic"
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
-        label="Email"
         name="email"
-        rules={[{ required: true, message: "Please input your username!" }]}
+        rules={[{ required: true, message: "Please input your email!" }]}
       >
-        <Input />
+        <Input placeholder={"Your email..."} />
       </Form.Item>
-
       <Form.Item
-        label="Password"
         name="password"
-        rules={[{ required: true, message: "Please input your password!" }]}
+        rules={[{ required: true, message: "Please input your passwrd!" }]}
       >
-        <Input.Password />
+        <Input type={"password"} placeholder={"Your password..."} />
       </Form.Item>
-      <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
+      {hasError && <Alert type={"error"} message={"Login failed"} />}
+      <div className={"actions"}>
+        <button
+          className={"secondary"}
+          onClick={() => history.replace("/signup")}
+        >
+          Sign Up
+        </button>
+        <button className={"primary"}>Login</button>
+      </div>
     </Form>
   );
 };

@@ -6,6 +6,8 @@ export const hasError = (state: AppState) => state.me && state.me.hasError;
 
 export const data = (state: AppState) => state.me && state.me.data;
 
+export const me = (state: AppState) => state.me && state.me.data.me;
+
 export const getFirstVocabularyGroup = (state: AppState) =>
   state.me &&
   state.me.data &&

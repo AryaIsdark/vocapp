@@ -22,6 +22,6 @@ export const authenticate = async (data: any) => {
     return response;
   } catch (err) {
     console.log(err);
-    return err;
+    throw err;
   }
 };
